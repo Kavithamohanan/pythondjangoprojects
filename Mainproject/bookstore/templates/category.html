@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    p
+    {color:#000066;
+    }
+</style>
+<div>
+   <image src="{% static 'images/img.png' %}"  height="400px" width="100%"></image>
+
+<!--    <center>-->
+<!--    <image src="{% static 'images/giffybest.gif' %}"  height="200px" width="20%"></image></center>-->
+
+<div class="container-fluid mt-4" style="margin-bottom:50px;">
+    <h3 class="text-center"> Let's Explore....</h3>
+    <p style="line-height:1.6;text-align:justify;"> "Embark on a Literary Wonderland with Our Extraordinary Kids' Book Collections! At our online store, we've carefully curated enchanting assortments of stories that cater to every young reader's imagination. From captivating bedtime tales that whisk them away to dreamland, to educational gems that make learning an exciting adventure – our collections are a treasure trove of literary delights.Every book in our collection is not just a story; it's a key to unlocking the boundless potential within each child. Fuel their curiosity, ignite their creativity, and build a lifelong love for reading with our meticulously crafted kids' book collections. Explore the magic today!"</p>
+      <center>
+    <image src="{% static 'images/giffybest.gif' %}"  height="300px" width="30%"></image></center>
+</div>
+<div class="container-fluid mt-2" style="margin-bottom:100px;">
+    <div class="row">
+        {% for i in c %}
+        <div class="col-sm-4 mb-4">
+            <div class="card" style="width: 28rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="250px" width="100%;">
+  <div class="card-body">
+    <h3 class="card-title text-center">{{i.name}}</h3>
+
+    <a href="{% url 'shop:allbooks' i.name %}" class="btn btn-primary" style="position:relative;left:38%;">Click here</a>
+  </div>
+</div>
+
+        </div>{% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
